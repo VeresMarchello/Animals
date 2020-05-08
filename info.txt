@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------
+a programot keszitette:
+Veres Marcell JEDU1N
+
+a program  az orai anyagok logikaja, felepitese alapjan keszult
+
+forrasok:
+Piller Imre Cube peldaja (https://bitbucket.org/piller-imre/grafika/src/master/samples/cube/)
+Piller Imre Skybox peldaja (https://users.iit.uni-miskolc.hu/~piller/graphics/tutorial/skybox.zip)
+Mark J. Kilgard Dinoshade (https://www.opengl.org/archives/resources/code/samples/glut_examples/examples/dinoshade.c)
+
+leiras:
+a program ket modellt, egy macskat, valamint egy darazsat jelenit meg
+a program tovabba tartalmaz egy skyboxot, valamint egy plane-t, mindketto texturazott
+a menu segitsegevel allithato az allatok texturaja, valamint a skybox, es a talaje is
+a menu lehetoseget ad a ket modell eltuntetesere/megjelenetesere
+a menun keresztul elindithato/megallithato az animacio, amely alatt hallhato a darazs zummogose is
+a macska atlatszosaga szabalyozhato a menun keresztul, azonban ez a funkcio csak akkor erheto el, ha a macska nem rendelkezik texturaval
+
+
+plusz funckciok:
+-menu hasznalata
+-hang lejatszasa
+-atlatszosag
+
+
+iranyitas:
+w - elore
+s - hatra
+a - balra
+d - jobbra
+               
+nyil fel    - fel 
+nyil le     - le
+nyil balra  - balra
+nyil jobbra - jobbra
+
+fenyero novelese    - m
+fenyero csokkentese - n
+
+bal egergomb  - forgatas
+jobb egergomb - menu
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------
