@@ -25,7 +25,8 @@ enum
     M_NONE, M_MOTION, 
     M_SKY, M_CAT, M_BEE,
     M_FLOOR_TEXTURE, M_SKY_TEXTURE, M_CAT_TEXTURE, M_BEE_TEXTURE,
-    M_OPACITY
+    M_OPACITY,
+    M_INFO
 };
 
 float brightness;

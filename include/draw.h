@@ -14,6 +14,7 @@ int sky_texture;
 int cat_texture;
 int bee_texture;
 int opacity;
+int show_info;
 
 /* Draw the model */
 void draw_model(const struct Model* model);

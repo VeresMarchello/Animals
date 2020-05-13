@@ -7,12 +7,46 @@
 #include <windowsx.h>
 #include <mmsystem.h>
 
+
 struct
 {
     int x;
     int y;
 } mouse_position;
 
+void print_info()
+{
+    glDisable(GL_LIGHTING);
+
+    int c;
+    FILE* file;
+
+    file = fopen("info.txt", "r");
+
+    glPushAttrib(GL_CURRENT_BIT);
+    glColor3f(0.2, 0.2, 0.2);
+    glRasterPos2f(0.0f, -5.0f);
+
+    if (file) 
+    {
+        float y = -15.0f;
+        float z = 16.0f;
+        while ((c = getc(file)) != EOF)
+        {
+            if (c == '\n')
+            {   
+                glRasterPos3f(-4.0f, -15.0f, z);
+                z -= 0.4f;
+            }
+
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+        }
+        fclose(file);
+    }
+    glPopAttrib();
+
+    glEnable(GL_LIGHTING);
+}
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -20,11 +54,16 @@ void display()
     glMatrixMode(GL_MODELVIEW);
 
     glPushMatrix();
-
+    
     set_view(&camera);
+    if (show_info)
+    {
+        print_info();
+    }
     draw_scene(&scene);
-
+    
     glPopMatrix();
+    
 
     glutSwapBuffers();
 }
@@ -103,17 +142,8 @@ void specialKeyboard(int key, int x, int y)
 {
     if (key == GLUT_KEY_F1)
     {
-        int c;
-        FILE* file;
-        file = fopen("info.txt", "r");
-        if (file)
-        {
-            while ((c = getc(file)) != EOF)
-            {
-                putchar(c);
-            }
-            fclose(file);
-        }
+        show_info = 1 - show_info;
+        display();
     }
 
     if (key == GLUT_KEY_DOWN)
@@ -221,6 +251,10 @@ void controls(int value)
         opacity = 1 - opacity;
         display();
         break;
+    case M_INFO:
+        show_info = 1 - show_info;
+        display();
+        break;
         
     }
 }
@@ -249,6 +283,8 @@ void set_callbacks()
     glutAddMenuEntry("Toggle bee texture", M_BEE_TEXTURE);
     glutAddMenuEntry("-----------------------", M_NONE);
     glutAddMenuEntry("Toggle cat transparency", M_OPACITY);
+    glutAddMenuEntry("-----------------------", M_NONE);
+    glutAddMenuEntry("Show/Hide Info", M_INFO);
     
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
 }

@@ -27,6 +27,8 @@ int main(int argc, char* argv[])
 
 	opacity = 0;
 
+	show_info = 0;
+
 	init_opengl();
 	init_scene(&scene);
 	init_camera(&camera);
