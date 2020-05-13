@@ -3,9 +3,9 @@
 #define VIEWPORT_RATIO (4.0 / 3.0)
 #define VIEWPORT_ASPECT 50.0
 
-#include <windows.h>
-#include <windowsx.h>
-#include <mmsystem.h>
+//#include <windows.h>
+//#include <windowsx.h>
+//#include <mmsystem.h>
 
 
 struct
@@ -29,7 +29,7 @@ void print_info()
 
     if (file) 
     {
-        float z = 16.0f;
+        float z = 17.0f;
         while ((c = getc(file)) != EOF)
         {
             if (c == '\n')
@@ -205,13 +205,13 @@ void controls(int value)
         animation = 1 - animation;
         if (animation == 1 && bee == 1) 
         {
-            PlaySound("sounds/bee.wav", NULL, SND_ASYNC | SND_FILENAME | SND_LOOP);
+            //PlaySound("sounds/bee.wav", NULL, SND_ASYNC | SND_FILENAME | SND_LOOP);
 
             glutIdleFunc(idle);
         }
         else 
         {
-            PlaySound(NULL, NULL, 0);
+            //PlaySound(NULL, NULL, 0);
 
             glutIdleFunc(0);
         }
@@ -224,7 +224,7 @@ void controls(int value)
         bee = 1 - bee;
         if (!bee)
         {
-            PlaySound(NULL, NULL, 0);
+            //PlaySound(NULL, NULL, 0);
 
             glutIdleFunc(0);
         }

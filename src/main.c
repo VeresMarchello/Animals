@@ -1,9 +1,6 @@
 #include "callbacks.h"
 #include "init.h"
-#include <stdio.h>#include <windows.h>
-#include <windowsx.h>
-#include <mmsystem.h>
-
+#include <stdio.h>
 /* Main function */
 int main(int argc, char* argv[])
 {

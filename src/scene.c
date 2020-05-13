@@ -1,9 +1,5 @@
 #include "scene.h"
 
-#include <windows.h>
-#include <windowsx.h>
-#include <mmsystem.h>
-
 
 void init_scene(Scene* scene)
 {

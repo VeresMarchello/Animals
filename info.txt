@@ -20,7 +20,6 @@ a macska atlatszosaga szabalyozhato a menun keresztul, azonban ez a funkcio csak
 
 plusz funckciok:
 -menu hasznalata
--hang lejatszasa
 -atlatszosag
 
 
