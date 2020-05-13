@@ -29,7 +29,6 @@ void print_info()
 
     if (file) 
     {
-        float y = -15.0f;
         float z = 16.0f;
         while ((c = getc(file)) != EOF)
         {
