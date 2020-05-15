@@ -1,11 +1,15 @@
 #include "callbacks.h"
+#include "al.h"
+#include "alut.h"
+#include "alc.h"
+//#include "efx.h"
+//#include "EFX-Util.h"
+//#include "efx-creative.h"
+//#include "xram.h"
+
 
 #define VIEWPORT_RATIO (4.0 / 3.0)
 #define VIEWPORT_ASPECT 50.0
-
-//#include <windows.h>
-//#include <windowsx.h>
-//#include <mmsystem.h>
 
 
 struct
@@ -203,15 +207,26 @@ void controls(int value)
         return;
     case M_MOTION:
         animation = 1 - animation;
+
+        ALuint buffer, source;
+
         if (animation == 1 && bee == 1) 
         {
-            //PlaySound("sounds/bee.wav", NULL, SND_ASYNC | SND_FILENAME | SND_LOOP);
+            alcMakeContextCurrent(1);
+            alutInit(0, NULL);
+            buffer = alutCreateBufferFromFile("sounds/bee.wav");
+            alGenSources(1, &source);
+            alSourcei(source, AL_BUFFER, buffer);
+            alSourcePlay(source);
 
             glutIdleFunc(idle);
         }
-        else 
+        else
         {
-            //PlaySound(NULL, NULL, 0);
+            alSourceStop(source);
+            alDeleteSources(1, &source);
+            alDeleteBuffers(1, &buffer);
+            alcMakeContextCurrent(NULL);
 
             glutIdleFunc(0);
         }
