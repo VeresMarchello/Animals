@@ -212,7 +212,6 @@ void controls(int value)
 
         if (animation == 1 && bee == 1) 
         {
-            alcMakeContextCurrent(1);
             alutInit(0, NULL);
             buffer = alutCreateBufferFromFile("sounds/bee.wav");
             alGenSources(1, &source);
