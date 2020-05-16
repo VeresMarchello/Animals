@@ -1,11 +1,5 @@
 #include "callbacks.h"
-#include "al.h"
-#include "alut.h"
-#include "alc.h"
-//#include "efx.h"
-//#include "EFX-Util.h"
-//#include "efx-creative.h"
-//#include "xram.h"
+
 
 
 #define VIEWPORT_RATIO (4.0 / 3.0)
@@ -207,26 +201,12 @@ void controls(int value)
         return;
     case M_MOTION:
         animation = 1 - animation;
-
-        ALuint buffer, source;
-
-        if (animation == 1 && bee == 1) 
+        if (animation && bee) 
         {
-            alutInit(0, NULL);
-            buffer = alutCreateBufferFromFile("sounds/bee.wav");
-            alGenSources(1, &source);
-            alSourcei(source, AL_BUFFER, buffer);
-            alSourcePlay(source);
-
             glutIdleFunc(idle);
         }
         else
         {
-            alSourceStop(source);
-            alDeleteSources(1, &source);
-            alDeleteBuffers(1, &buffer);
-            alcMakeContextCurrent(NULL);
-
             glutIdleFunc(0);
         }
         break;
@@ -238,8 +218,6 @@ void controls(int value)
         bee = 1 - bee;
         if (!bee)
         {
-            //PlaySound(NULL, NULL, 0);
-
             glutIdleFunc(0);
         }
         display();
@@ -268,7 +246,6 @@ void controls(int value)
         show_info = 1 - show_info;
         display();
         break;
-        
     }
 }
 

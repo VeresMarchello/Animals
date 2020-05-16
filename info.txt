@@ -14,7 +14,7 @@ a program ket modellt, egy macskat, valamint egy darazsat jelenit meg
 a program tovabba tartalmaz egy skyboxot, valamint egy plane-t, mindketto texturazott
 a menu segitsegevel allithato az allatok texturaja, valamint a skybox, es a talaje is
 a menu lehetoseget ad a ket modell eltuntetesere/megjelenetesere
-a menun keresztul elindithato/megallithato az animacio, amely alatt hallhato a darazs zummogose is
+a menun keresztul elindithato/megallithato az animacio
 a macska atlatszosaga szabalyozhato a menun keresztul, azonban ez a funkcio csak akkor erheto el, ha a macska nem rendelkezik texturaval
 
 
